@@ -1,0 +1,80 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          Int          @id @default(autoincrement())
+  name        String
+  email       String       @unique
+  passwordHash String
+  role        Role
+  createdAt   DateTime     @default(now())
+  students    Student[]    @relation("GuardianStudents")
+  notifications Notification[]
+}
+
+model Student {
+  id         Int       @id @default(autoincrement())
+  name       String
+  age        Int
+  grade      String?
+  guardian   User?     @relation("GuardianStudents", fields: [guardianId], references: [id])
+  guardianId Int?
+  fees       Fee[]
+  createdAt  DateTime  @default(now())
+}
+
+model Fee {
+  id        Int       @id @default(autoincrement())
+  student   Student   @relation(fields: [studentId], references: [id])
+  studentId Int
+  amount    Float
+  dueDate   DateTime
+  status    FeeStatus @default(pending)
+  paidAt    DateTime?
+  payments  Payment[]
+}
+
+model Notification {
+  id        Int       @id @default(autoincrement())
+  user      User      @relation(fields: [userId], references: [id])
+  userId    Int
+  message   String
+  type      NotificationType
+  createdAt DateTime @default(now())
+  read      Boolean  @default(false)
+}
+
+model Payment {
+  id            Int       @id @default(autoincrement())
+  fee           Fee       @relation(fields: [feeId], references: [id])
+  feeId         Int
+  amount        Float
+  paymentMethod String?
+  transactionId String    @unique
+  createdAt     DateTime  @default(now())
+}
+
+enum Role {
+  admin
+  teacher
+  guardian
+  student
+}
+
+enum FeeStatus {
+  pending
+  paid
+  overdue
+}
+
+enum NotificationType {
+  fee_due
+  payment_received
+  general
+}
