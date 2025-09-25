@@ -11,15 +11,18 @@ const LoginPage = () => {
         name: "",
         email: "",
         password: "",
+        role: "",
     });
 
     const router = useRouter();
+
+    const handleRole = async (e: React.FormEvent) => {};
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setLoading(true);
         try {
-            const res = await fetchFromAPI("api/auth/login", "POST", { ...form, role: "guardian" });
+            const res = await fetchFromAPI("api/auth/login", "POST", { ...form });
 
             // Save token to localStorage and cookie
             localStorage.setItem("token", res.token);
@@ -34,11 +37,8 @@ const LoginPage = () => {
     };
 
     return (
-        <div className="flex flex-col gap-4 items-center justify-center min-h-screen">
-            <form
-                className="flex flex-col  gap-4 items-center justify-center bg-lime-950 p-8 rounded-lg"
-                onSubmit={handleSubmit}
-            >
+        <div className="flex flex-col gap-6 items-center justify-center min-h-screen ">
+            <form className="flex flex-col shadow-2xl  gap-4 items-center justify-center  border-2 border-primary p-8 rounded-lg" onSubmit={handleSubmit}>
                 <div className="flex gap-2 flex-col">
                     <p>Email:</p>
                     <input
@@ -47,7 +47,7 @@ const LoginPage = () => {
                         onChange={(e) => {
                             setForm({ ...form, email: e.target.value });
                         }}
-                        className="border border-lime-500 rounded-md p-2"
+                        className="w-full border-b border-gray-500 bg-transparent focus:outline-none focus:ring-0 focus:border-gray-500"
                         value={form.email}
                     />
                 </div>
@@ -59,19 +59,19 @@ const LoginPage = () => {
                         onChange={(e) => {
                             setForm({ ...form, password: e.target.value });
                         }}
-                        className="border border-lime-500 rounded-md p-2"
+                        className="w-full border-b border-gray-500 bg-transparent focus:outline-none focus:ring-0 focus:border-gray-500"
                         value={form.password}
                     />
                 </div>
-                <button className="py-2 px-4 bg-lime-800 rounded-xl " type="submit">
+                <button className="py-2 px-4 bg-primary text-white font-bold rounded-sm " type="submit">
                     {loading ? "Logging in..." : "Login"}
                 </button>
+                <div>
+                    <Link href={"/register"} className="">
+                        Need an Account ?<p className="underline text-primary text-center">Register</p>
+                    </Link>
+                </div>
             </form>
-            <div>
-                <Link href={"/register"} className="text-red-500">
-                    Create an Account
-                </Link>
-            </div>
         </div>
     );
 };

@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-/* Theme Colors */
 @theme inline {
     --color-primary: #2563eb; /* Blue 600 */
     --color-primary-dark: #1e40af; /* Blue 900 */
@@ -12,7 +11,7 @@
 }
 
 /* Dark mode support */
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
     :root {
         --color-primary: #3b82f6; /* Blue 500 */
         --color-primary-dark: #1e3a8a; /* Blue 800 */
