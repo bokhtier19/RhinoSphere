@@ -1,6 +1,7 @@
 "use client";
 
 import { fetchFromAPI } from "@/lib/api";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
@@ -84,6 +85,11 @@ const RegisterPage = () => {
                     <button type="submit" disabled={loading} className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition">
                         {loading ? "Registering" : "Register"}
                     </button>
+                    <div>
+                        <Link href={"/login"} className="flex gap-4">
+                            Already have an Account ?<span className="underline text-primary text-center">Login</span>
+                        </Link>
+                    </div>
                 </form>
             </div>
         </div>

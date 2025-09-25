@@ -8,27 +8,26 @@ import Link from "next/link";
 const LoginPage = () => {
     const [loading, setLoading] = useState(false);
     const [form, setForm] = useState({
-        name: "",
         email: "",
         password: "",
-        role: "",
     });
 
     const router = useRouter();
 
-    const handleRole = async (e: React.FormEvent) => {};
-
-    const handleSubmit = async (e: React.FormEvent) => {
+    const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
         setLoading(true);
         try {
-            const res = await fetchFromAPI("api/auth/login", "POST", { ...form });
+            const res = await fetchFromAPI("api/auth/login", "POST", { email: form.email, password: form.password });
+
+            if (!res?.token) {
+                throw new Error("Invalid Token!");
+            }
 
             // Save token to localStorage and cookie
             localStorage.setItem("token", res.token);
             document.cookie = `token=${res.token}; path=/; max-age=3600; Secure; SameSite=Strict`;
             router.push("/dashboard");
-            alert("Login successful!");
         } catch (error) {
             alert("Login failed. Please Check Your credentials.");
         } finally {
@@ -38,7 +37,7 @@ const LoginPage = () => {
 
     return (
         <div className="flex flex-col gap-6 items-center justify-center min-h-screen ">
-            <form className="flex flex-col shadow-2xl  gap-4 items-center justify-center  border-2 border-primary p-8 rounded-lg" onSubmit={handleSubmit}>
+            <form className="flex flex-col shadow-2xl  gap-4 items-center justify-center  border-2 border-primary p-8 rounded-lg" onSubmit={handleLogin}>
                 <div className="flex gap-2 flex-col">
                     <p>Email:</p>
                     <input

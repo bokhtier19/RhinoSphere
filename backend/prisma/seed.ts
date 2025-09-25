@@ -1,14 +1,21 @@
 // prisma/seed.ts
 import { PrismaClient, Role, FeeStatus, NotificationType } from "@prisma/client";
+import bcrypt from "bcrypt";
+
 const prisma = new PrismaClient();
 
 async function main() {
+    // --- Hash passwords ---
+    const adminPassword = await bcrypt.hash("admin123", 10);
+    const teacherPassword = await bcrypt.hash("teacher123", 10);
+    const guardianPassword = await bcrypt.hash("guardian123", 10);
+
     // --- Admin ---
     const admin = await prisma.user.create({
         data: {
             name: "Admin User",
-            email: "admin@rhinoschool.com",
-            passwordHash: "hashed_admin_password", // replace with bcrypt later
+            email: "admin@mail.com",
+            passwordHash: adminPassword,
             role: Role.admin,
         },
     });
@@ -17,8 +24,8 @@ async function main() {
     const teacher = await prisma.user.create({
         data: {
             name: "John Teacher",
-            email: "teacher@rhinoschool.com",
-            passwordHash: "hashed_teacher_password",
+            email: "teacher@example.com",
+            passwordHash: teacherPassword,
             role: Role.teacher,
         },
     });
@@ -28,7 +35,7 @@ async function main() {
         data: {
             name: "Sarah Guardian",
             email: "guardian@rhinoschool.com",
-            passwordHash: "hashed_guardian_password",
+            passwordHash: guardianPassword,
             role: Role.guardian,
         },
     });
@@ -87,7 +94,7 @@ async function main() {
 
 main()
     .catch((e) => {
-        console.error("❌ Seed error:", e);
+        console.error("Seed error:", e);
         process.exit(1);
     })
     .finally(async () => {

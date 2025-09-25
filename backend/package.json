@@ -7,13 +7,14 @@
         "dev": "nodemon --exec ts-node src/server.ts",
         "start": "ts-node src/server.ts",
         "prisma:studio": "npx prisma studio",
-        "prisma:migrate": "npx prisma migrate dev"
+        "prisma:migrate": "npx prisma migrate dev",
+        "seed": "npx prisma db seed"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "@prisma/client": "^6.16.1",
+        "@prisma/client": "^6.16.2",
         "@types/express": "^4.17.23",
         "bcrypt": "^6.0.0",
         "cors": "^2.8.5",
@@ -27,7 +28,7 @@
         "@types/jsonwebtoken": "^9.0.10",
         "@types/node": "^20.14.2",
         "nodemon": "^3.1.10",
-        "prisma": "^6.16.1",
+        "prisma": "^6.16.2",
         "ts-node": "^10.9.2",
         "typescript": "^5.9.2"
     }
