@@ -53,7 +53,7 @@ const SideBar = () => {
                         document.cookie = "token=; path=/; max-age=0; Secure; SameSite=Strict";
                         router.push("/login");
                     }}
-                    className="bg-secondary-dark rounded-sm text-white py-2 px-4 hover:underline flex gap-2">
+                    className=" rounded-sm text-white py-2 px-4 hover:underline flex gap-2">
                     Logout
                     <LogOut className="w-5 h-5" />
                 </button>
