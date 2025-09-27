@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import ProtectedRoute from "../../../components/ProtectedRoute";
-import Navbar from "../../../components/Navbar";
+import ProtectedRoute from "../../components/ProtectedRoute";
+import Navbar from "../../components/Navbar";
 import { useRouter } from "next/navigation";
-import SideBar from "../../../components/SideBar";
+import SideBar from "../../components/SideBar";
 
 const DashboardPageLayout = ({ children }: { children: React.ReactNode }) => {
     const router = useRouter();

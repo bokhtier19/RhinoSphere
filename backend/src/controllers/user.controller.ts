@@ -3,7 +3,7 @@ import * as userService from "../services/user.service";
 
 export const createUser = async (req: Request, res: Response) => {
     try {
-        const { name, email, password, role } = req.body; // raw password from client
+        const { name, email, password, role } = req.body;
         const user = await userService.createUser({ name, email, password, role });
         res.json(user);
     } catch (error: any) {

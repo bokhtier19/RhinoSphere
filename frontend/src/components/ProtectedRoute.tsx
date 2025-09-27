@@ -1,5 +1,6 @@
 "use client";
 
+import { Loader } from "lucide-react";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
@@ -18,7 +19,9 @@ export default function ProtectedRoute({ children }: { children: React.ReactNode
     }, [router]);
 
     if (loading) {
-        return <p className="text-center items-center flex justify-center">Loading.....</p>;
+        return <div className="flex items-center justify-center h-screen">
+      <Loader className="h-8 w-8 animate-spin text-primary" />
+    </div>;
     }
 
     return <>{children}</>;

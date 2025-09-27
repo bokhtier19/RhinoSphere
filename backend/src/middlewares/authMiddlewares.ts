@@ -13,13 +13,13 @@ export const authMiddleware = (req: AuthRequest, res: Response, next: NextFuncti
             return res.status(401).json({ error: "Authorization header missing" });
         }
 
-        const token = authHeader.split(" ")[1]; // Expect "Bearer <token>"
+        const token = authHeader.split(" ")[1];
         if (!token) {
             return res.status(401).json({ error: "Token missing" });
         }
 
         const decoded = verifyToken(token);
-        req.user = decoded; // attach decoded payload to request
+        req.user = decoded;
         next();
     } catch (err) {
         return res.status(401).json({ error: "Invalid or expired token" });

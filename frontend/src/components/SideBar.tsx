@@ -33,7 +33,7 @@ const SideBar = () => {
     const router = useRouter();
 
     return (
-        <aside className="w-56 flex flex-col h-screen p-4 gap-12 bg-secondary text-white">
+        <aside className="w-56 flex flex-col h-screen p-4 gap-12 bg-secondary rounded-l-2xl text-white">
             <div className="text-2xl uppercase mb-5 font-extrabold">RhinoSphere</div>
             <nav className="flex flex-col">
                 {menuItems.map((item) => (

@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { jwtDecode } from "jwt-decode";
+import { Loader } from "lucide-react";
 
 interface DecodedToken {
   userId: number;
@@ -35,6 +36,8 @@ export default function DashboardPage() {
       router.push("/login");
     }
   }, [router]);
+        return <div className="flex items-center justify-center h-screen">
+      <Loader className="h-8 w-8 animate-spin text-primary" />
+    </div>;
 
-  return <p className="text-center">Loading dashboard...</p>;
 }

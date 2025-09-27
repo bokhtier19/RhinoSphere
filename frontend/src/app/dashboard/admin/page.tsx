@@ -64,7 +64,7 @@ export default function AdminDashboard() {
                 <Card>
                     <CardContent className="p-2">
                         <h2 className="text-sm font-semibold text-gray-500">Total Expenditure</h2>
-                        <p className="text-center text-2xl font-bold text-red-500">₹45,000</p>
+                        <p className="text-center text-2xl font-bold text-red-500">₹1,87,000</p>
                     </CardContent>
                 </Card>
 
