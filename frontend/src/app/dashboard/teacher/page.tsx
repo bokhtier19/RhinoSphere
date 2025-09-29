@@ -21,8 +21,8 @@ const TeacherDashboard = () => {
     return (
         <div className="grid grid-cols-3 gap-4">
             <Card>
-                <CardContent className="p-2">
-                    <h2 className="text-sm font-semibold text-gray-500">Hi, Student</h2>
+                <CardContent className="p-2 px-4">
+                    <h2 className="text-xl font-semibold text-gray-500">Hi, Teacher</h2>
                     <p className="">
                         Welcome to your personal Profile.Manage and Stay upto dated with your academics. Submit assignments and School works through this portal. Dont forget to attend School
                         regularly.
@@ -48,8 +48,8 @@ const TeacherDashboard = () => {
                 </CardContent>
             </Card>
             {/* Calender */}
-            <Card>
-                <Calendar mode="single" selected={date} onSelect={setDate} className="rounded-full border" />
+            <Card className="flex items-center justify-center">
+                <Calendar mode="single" selected={date} onSelect={setDate} className="" />
             </Card>
         </div>
     );

@@ -21,8 +21,8 @@ const GuardianDashboard = () => {
     return (
         <div className="grid grid-cols-3 gap-4">
             <Card>
-                <CardContent className="p-2">
-                    <h2 className="text-sm font-semibold text-gray-500">Hi, Guardian</h2>
+                <CardContent className="p-2 px-4">
+                    <h2 className="text-2xl font-semibold text-gray-500">Hi, Guardian</h2>
                     <p className="">
                         Welcome to your personal Profile.Manage and Stay upto dated with your academics. Submit assignments and School works through this portal. Dont forget to attend School
                         regularly.

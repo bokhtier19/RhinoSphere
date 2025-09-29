@@ -1,5 +1,21 @@
 // sidebarConfig.ts
-import { Home, Users, BookOpen, DollarSign, Bell, LucideGraduationCap, PenBoxIcon, Calendar, MessageCircle, TimerReset, CalendarDays, FileIcon, UserStar, Megaphone } from "lucide-react";
+import {
+    Home,
+    Users,
+    BookOpen,
+    DollarSign,
+    Bell,
+    LucideGraduationCap,
+    PenBoxIcon,
+    Calendar,
+    MessageCircle,
+    TimerReset,
+    CalendarDays,
+    FileIcon,
+    UserStar,
+    Megaphone,
+    PhoneCallIcon,
+} from "lucide-react";
 
 export const sidebarConfig: Record<string, { label: string; path: string; icon: any }[]> = {
     admin: [
@@ -18,6 +34,7 @@ export const sidebarConfig: Record<string, { label: string; path: string; icon: 
         { label: "Dashboard", path: "/dashboard", icon: Home },
         { label: "My Classes", path: "/dashboard/teacher/classes", icon: BookOpen },
         { label: "Students", path: "/dashboard/teacher/students", icon: Users },
+        { label: "Contact", path: "/dashboard/contact", icon: PhoneCallIcon },
     ],
     student: [
         { label: "Dashboard", path: "/dashboard", icon: Home },
@@ -25,10 +42,13 @@ export const sidebarConfig: Record<string, { label: string; path: string; icon: 
         { label: "My TimeTable", path: "/dashboard/student/timetable", icon: Calendar },
         { label: "Message", path: "/dashboard/student/messages", icon: MessageCircle },
         { label: "Noticeboard", path: "/dashboard/student/noticeboard", icon: Megaphone },
+        { label: "Contact", path: "/dashboard/contact", icon: PhoneCallIcon },
     ],
     guardian: [
         { label: "Dashboard", path: "/dashboard", icon: Home },
         { label: "Child’s Fees", path: "/dashboard/guardian/fees", icon: DollarSign },
         { label: "Notifications", path: "/dashboard/guardian/notifications", icon: Bell },
+        { label: "Noticeboard", path: "/dashboard/student/noticeboard", icon: Megaphone },
+        { label: "Contact", path: "/dashboard/contact", icon: PhoneCallIcon },
     ],
 };
