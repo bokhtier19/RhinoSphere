@@ -20,15 +20,40 @@ const StudentDashboard = () => {
 
     return (
         <div className="grid grid-cols-3 gap-4">
-            <Card>
-                <CardContent className="p-2">
-                    <h2 className="text-sm font-semibold text-gray-500">Hi, Student</h2>
-                    <p className="">
-                        Welcome to your personal Profile.Manage and Stay upto dated with your academics. Submit assignments and School works through this portal. Dont forget to attend School
-                        regularly.
-                    </p>
-                </CardContent>
-            </Card>
+            <div className="flex gap-2 flex-col">
+                <Card>
+                    <CardContent className="p-2 px-4">
+                        <h2 className="text-2xl font-semibold text-gray-500 mb-4">Hi, Student</h2>
+                        <p className="">
+                            Welcome to your personal Profile.Manage and Stay upto dated with your academics. Submit assignments and School works through this portal. Dont forget to attend School
+                            regularly.
+                        </p>
+                    </CardContent>
+                </Card>
+
+                <div className="gap-2 flex flex-col">
+                    <div className="flex w-full items-between gap-2">
+                        <Card className="flex-1">
+                            <CardContent className="">
+                                <h2 className="text-sm font-semibold text-gray-500">Attendance</h2>
+                                <p className="text-2xl font-bold text-center">87%</p>
+                            </CardContent>
+                        </Card>
+                        <Card className="flex-1">
+                            <CardContent className="">
+                                <h2 className="text-sm font-semibold text-gray-500">Task Completed</h2>
+                                <p className="text-2xl font-bold text-center">34</p>
+                            </CardContent>
+                        </Card>
+                    </div>
+                    <Card>
+                        <CardContent className="">
+                            <h2 className="text-sm font-semibold text-gray-500">Reward Points</h2>
+                            <p className="text-2xl text-center font-bold">1267</p>
+                        </CardContent>
+                    </Card>
+                </div>
+            </div>
 
             {/* Attendance Chart */}
             <Card className="col-span-1">
@@ -48,8 +73,8 @@ const StudentDashboard = () => {
                 </CardContent>
             </Card>
             {/* Calender */}
-            <Card>
-                <Calendar mode="single" selected={date} onSelect={setDate} className="rounded-full border" />
+            <Card className="flex items-center">
+                <Calendar mode="single" selected={date} onSelect={setDate} className="" />
             </Card>
         </div>
     );

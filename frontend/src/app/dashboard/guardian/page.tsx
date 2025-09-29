@@ -48,8 +48,8 @@ const GuardianDashboard = () => {
                 </CardContent>
             </Card>
             {/* Calender */}
-            <Card>
-                <Calendar mode="single" selected={date} onSelect={setDate} className="rounded-full border" />
+            <Card className="flex justify-center items-center">
+                <Calendar mode="single" selected={date} onSelect={setDate} className="" />
             </Card>
         </div>
     );

@@ -29,38 +29,43 @@ export default function AdminDashboard() {
     const [date, setDate] = useState<Date | undefined>(new Date());
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 p-6">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 p-2">
             {/* Stats Cards */}
-            <div>
-
+            <div className="flex gap-2 flex-col">
                 <Card>
-                    <CardContent className="p-2">
-                        <h2 className="text-sm font-semibold text-gray-500">Total Students</h2>
-                        <p className="text-2xl font-bold text-center">1,230</p>
+                    <CardContent className="px-4">
+                        <h2 className=" font-semibold text-gray-500 text-2xl">Hi, Admin</h2>
+                        <p className="text-sm">
+                            Welcome to your personal Profile.Manage and Stay upto dated with your academics. Submit assignments and School works through this portal. Dont forget to attend School
+                            regularly.
+                        </p>
                     </CardContent>
                 </Card>
 
-                <Card>
-                    <CardContent className="p-2">
-                        <h2 className="text-sm font-semibold text-gray-500">Total Teachers</h2>
-                        <p className="text-2xl font-bold text-center">67</p>
-                    </CardContent>
-                </Card>
-                <Card>
-                    <CardContent className="p-2">
-                        <h2 className="text-sm font-semibold text-gray-500">Total Employees</h2>
-                        <p className="text-2xl text-center font-bold">56</p>
-                    </CardContent>
-                </Card>
+                <div className="gap-2 flex flex-col">
+                    <div className="flex w-full items-between gap-2">
+                        <Card className="flex-1">
+                            <CardContent className="">
+                                <h2 className="text-sm font-semibold text-gray-500">Students</h2>
+                                <p className="text-2xl font-bold text-center">1,230</p>
+                            </CardContent>
+                        </Card>
+                        <Card className="flex-1">
+                            <CardContent className="">
+                                <h2 className="text-sm font-semibold text-gray-500">Teachers</h2>
+                                <p className="text-2xl font-bold text-center">67</p>
+                            </CardContent>
+                        </Card>
+                    </div>
+                    <Card>
+                        <CardContent className="">
+                            <h2 className="text-sm font-semibold text-gray-500">Employees</h2>
+                            <p className="text-2xl text-center font-bold">56</p>
+                        </CardContent>
+                    </Card>
+                </div>
             </div>
-            <div>
-
-                <Card>
-                    <CardContent className="p-2">
-                        <h2 className="text-sm font-semibold text-gray-500">Pending Fees</h2>
-                        <p className="text-center text-2xl font-bold text-red-500">₹45,000</p>
-                    </CardContent>
-                </Card>
+            <div className="flex flex-col gap-2">
                 <Card>
                     <CardContent className="p-2">
                         <h2 className="text-sm font-semibold text-gray-500">Total Expenditure</h2>
@@ -82,11 +87,7 @@ export default function AdminDashboard() {
                     <h2 className="text-lg font-bold mb-4">Student Attendance</h2>
                     <ResponsiveContainer width="100%" height={250}>
                         <PieChart>
-                            <Legend
-                                verticalAlign="bottom"
-                                align="center"
-                                iconType="square"
-                            />
+                            <Legend verticalAlign="bottom" align="center" iconType="square" />
                             <Pie data={attendanceStatus} cx="50%" cy="50%" outerRadius={80} dataKey="value" label>
                                 {attendanceStatus.map((entry, index) => (
                                     <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
@@ -97,10 +98,10 @@ export default function AdminDashboard() {
                     </ResponsiveContainer>
                 </CardContent>
             </Card>
-            <Card>
+            <Card className="flex items-center justify-center">
                 {/* Calender */}
-
-                <Calendar mode="single" selected={date} onSelect={setDate} className="rounded-full border" />
+                <h2 className="text-lg font-bold mb-4">Calender</h2>
+                <Calendar mode="single" selected={date} onSelect={setDate} className="" />
             </Card>
             {/* Fee Trend Chart */}
             <Card className="col-span-2">
@@ -123,16 +124,12 @@ export default function AdminDashboard() {
                     <h2 className="text-lg font-bold mb-4">Fees Paid vs Pending</h2>
                     <ResponsiveContainer width="100%" height={250}>
                         <PieChart>
-                            <Pie data={feeStatusData} cx="50%" cy="50%" outerRadius={80} dataKey="value" label>
+                            <Pie data={feeStatusData} cx="50%" cy="50%" outerRadius={100} dataKey="value" label>
                                 {feeStatusData.map((entry, index) => (
                                     <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                                 ))}
                             </Pie>
-                            <Legend
-                                verticalAlign="bottom"
-                                align="center"
-                                iconType="square"
-                            />
+                            <Legend verticalAlign="bottom" align="left" iconType="triangle" />
                             <Tooltip />
                         </PieChart>
                     </ResponsiveContainer>
