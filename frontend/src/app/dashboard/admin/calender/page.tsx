@@ -78,21 +78,23 @@ const AdminCalendarPage = () => {
             </div>
 
             {/* Add Plan Modal */}
-            <Dialog open={open} onOpenChange={setOpen}>
-                <DialogContent>
-                    <DialogHeader>
-                        <DialogTitle>Add Plan</DialogTitle>
-                    </DialogHeader>
-                    <p className="text-sm mb-2">Selected Date: {selectedDate?.toLocaleDateString()}</p>
-                    <Input placeholder="Enter plan title..." value={planTitle} onChange={(e) => setPlanTitle(e.target.value)} className="mb-4" />
-                    <DialogFooter>
-                        <Button variant="outline" onClick={() => setOpen(false)}>
-                            Cancel
-                        </Button>
-                        <Button onClick={handleAddEvent}>Add</Button>
-                    </DialogFooter>
-                </DialogContent>
-            </Dialog>
+            <div className="bg-secondary">
+                <Dialog open={open} onOpenChange={setOpen}>
+                    <DialogContent>
+                        <DialogHeader>
+                            <DialogTitle>Add Plan</DialogTitle>
+                        </DialogHeader>
+                        <p className="text-sm mb-2">Selected Date: {selectedDate?.toLocaleDateString()}</p>
+                        <Input placeholder="Enter plan title..." value={planTitle} onChange={(e) => setPlanTitle(e.target.value)} className="mb-4" />
+                        <DialogFooter>
+                            <Button variant="outline" onClick={() => setOpen(false)}>
+                                Cancel
+                            </Button>
+                            <Button onClick={handleAddEvent}>Add</Button>
+                        </DialogFooter>
+                    </DialogContent>
+                </Dialog>
+            </div>
         </div>
     );
 };

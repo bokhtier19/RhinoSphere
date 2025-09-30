@@ -26,7 +26,7 @@ const TimeTablePage = () => {
             <div className="overflow-x-auto">
                 <table className="w-full border border-gray-300 rounded-lg">
                     <thead>
-                        <tr className="bg-gray-100">
+                        <tr className="">
                             <th className="p-3 border">Time</th>
                             {days.map((day) => (
                                 <th key={day} className="p-3 border">

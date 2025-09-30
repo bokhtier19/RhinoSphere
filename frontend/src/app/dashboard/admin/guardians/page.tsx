@@ -54,7 +54,7 @@ const AdminGuardianPage = () => {
                 </thead>
                 <tbody>
                     {users
-                        .filter((user) => user.role === "teacher")
+                        .filter((user) => user.role === "guardian")
                         .map((user) => (
                             <tr key={user.id} className="text-center">
                                 <td className="p-2">{user.id}</td>

@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Calendar, CalendarDayButton } from "@/components/ui/calendar";
 import { BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from "recharts";
 import { useState } from "react";
+import Link from "next/link";
 
 const feeTrendData = [
     { month: "Jan", collected: 12000 },
@@ -32,7 +33,7 @@ export default function AdminDashboard() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 p-2">
             {/* Stats Cards */}
             <div className="flex gap-2 flex-col">
-                <Card>
+                <Card className="">
                     <CardContent className="px-4">
                         <h2 className=" font-semibold text-gray-500 text-2xl">Hi, Admin</h2>
                         <p className="text-sm">
@@ -65,26 +66,33 @@ export default function AdminDashboard() {
                     </Card>
                 </div>
             </div>
-            <div className="flex flex-col gap-2">
-                <Card>
-                    <CardContent className="p-2">
-                        <h2 className="text-sm font-semibold text-gray-500">Total Expenditure</h2>
+            <div className="flex flex-col gap-4">
+                <Card className="bg-red-200">
+                    <CardContent className="flex flex-col gap-3">
+                        <p className="text-sm font-semibold text-gray-500">Total Expenditure</p>
                         <p className="text-center text-2xl font-bold text-red-500">₹1,87,000</p>
                     </CardContent>
                 </Card>
 
-                <Card>
-                    <CardContent className="p-2">
+                <Card className="bg-green-200">
+                    <CardContent className="flex flex-col gap-3">
                         <h2 className="text-sm font-semibold text-gray-500">Revenue Collected</h2>
                         <p className="text-2xl font-bold text-green-600  text-center">₹2,34,000</p>
+                    </CardContent>
+                </Card>
+                <Card className="bg-blue-200">
+                    <CardContent className="flex flex-col gap-3">
+                        <h2 className="text-sm font-semibold text-gray-500">Student Added This Month</h2>
+                        <p className="text-2xl font-bold text-green-600  text-center">+17</p>
                     </CardContent>
                 </Card>
             </div>
 
             {/* Attendance Chart */}
             <Card className="col-span-1">
-                <CardContent className="p-4">
-                    <h2 className="text-lg font-bold mb-4">Student Attendance</h2>
+                <CardContent className="p-2 flex flex-col justify-center items-center">
+                    <h2 className="text-lg font-bold">Student Attendance</h2>
+                    <p className="text-sm text-secondary">Date: {new Date().toLocaleDateString()}</p>
                     <ResponsiveContainer width="100%" height={250}>
                         <PieChart>
                             <Legend verticalAlign="bottom" align="center" iconType="square" />
@@ -100,8 +108,11 @@ export default function AdminDashboard() {
             </Card>
             <Card className="flex items-center justify-center">
                 {/* Calender */}
-                <h2 className="text-lg font-bold mb-4">Calender</h2>
+                <h2 className="text-lg font-bold">Calender</h2>
                 <Calendar mode="single" selected={date} onSelect={setDate} className="" />
+                <div className="text-sm border px-4 py-1 rounded-sm bg-secondary text-white">
+                    <Link href={"/dashboard/admin/calender"}>Manage Calender</Link>
+                </div>
             </Card>
             {/* Fee Trend Chart */}
             <Card className="col-span-2">
