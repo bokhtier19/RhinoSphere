@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Pin, PinOff } from "lucide-react";
+import { notices } from "@/lib/notices";
 
 interface Notice {
     id: number;
@@ -11,27 +12,6 @@ interface Notice {
 }
 
 const AdminNoticeBoard = () => {
-    const [notices, setNotices] = useState<Notice[]>([
-        {
-            id: 1,
-            title: "Holiday Announcement",
-            content: "School will remain closed on October 2nd for Gandhi Jayanti.",
-            date: new Date(2025, 8, 25),
-        },
-        {
-            id: 2,
-            title: "Exam Schedule",
-            content: "Mid-term exams will start from November 15th. Timetable will be shared soon.",
-            date: new Date(2025, 8, 27),
-        },
-        {
-            id: 3,
-            title: "Exam Schedule",
-            content: "Mid-term exams will start from November 15th. Timetable will be shared soon.",
-            date: new Date(2025, 8, 27),
-        },
-    ]);
-
     return (
         <div className="p-6">
             <h2 className="text-xl font-bold mb-4">School Noticeboard</h2>

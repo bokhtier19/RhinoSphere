@@ -36,7 +36,7 @@ const AdminCalendarPage = () => {
         {
             id: 1,
             title: "Teachers Meeting",
-            start: new Date(2025, 8, 28, 10, 0), // Sept 28, 2025 10:00
+            start: new Date(2025, 8, 28, 10, 0),
             end: new Date(2025, 8, 28, 11, 30),
         },
         {

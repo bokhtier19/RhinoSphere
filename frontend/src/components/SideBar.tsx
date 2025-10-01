@@ -41,7 +41,7 @@ const SideBar = () => {
             <nav className="flex flex-col">
                 {menuItems.map((item) => (
                     <div className="hover:bg-secondary-dark rounded-sm">
-                        <Link key={item.path} href={item.path} className="gap-2 flex items-center hover:bg-secondary p-2 rounded-md">
+                        <Link key={item.path} href={item.path} className="gap-2 flex items-center p-2 rounded-md">
                             <item.icon className="w-5 h-5" />
                             <span>{item.label}</span>
                         </Link>

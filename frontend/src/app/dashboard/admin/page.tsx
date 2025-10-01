@@ -32,39 +32,39 @@ export default function AdminDashboard() {
     return (
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 p-2">
             {/* Stats Cards */}
-            <div className="flex gap-2 flex-col">
-                <Card className="">
-                    <CardContent className="px-4">
-                        <h2 className=" font-semibold text-gray-500 text-2xl">Hi, Admin</h2>
-                        <p className="text-sm">
-                            Welcome to your personal Profile.Manage and Stay upto dated with your academics. Submit assignments and School works through this portal. Dont forget to attend School
-                            regularly.
-                        </p>
+            <div className="flex gap-2 flex-col text-xs">
+                <Card className="flex">
+                    <CardContent className="p-2 px-4 flex flex-col gap-4 text-sm">
+                        <div className="flex justify-between">
+                            <h2 className="text-2xl font-semibold text-gray-500 mb-4">Hi, Admin</h2>
+                            <img src="/admin.svg" alt="School Illustration" width={170} className="drop-shadow-xl" />
+                        </div>
+                        <p>Welcome to the schools admin Dashboard.</p>
+                        <p>Maintain The Schools Online activities , finances , notices and alerts with Ease. Keep track of your students , teachers and guardians with just a click.</p>
                     </CardContent>
                 </Card>
-
-                <div className="gap-2 flex flex-col">
-                    <div className="flex w-full items-between gap-2">
-                        <Card className="flex-1">
-                            <CardContent className="">
-                                <h2 className="text-sm font-semibold text-gray-500">Students</h2>
-                                <p className="text-2xl font-bold text-center">1,230</p>
-                            </CardContent>
-                        </Card>
-                        <Card className="flex-1">
-                            <CardContent className="">
-                                <h2 className="text-sm font-semibold text-gray-500">Teachers</h2>
-                                <p className="text-2xl font-bold text-center">67</p>
-                            </CardContent>
-                        </Card>
-                    </div>
-                    <Card>
+            </div>
+            <div className="gap-2 flex flex-col">
+                <div className="flex w-full items-between gap-2">
+                    <Card className="flex-1">
                         <CardContent className="">
-                            <h2 className="text-sm font-semibold text-gray-500">Employees</h2>
-                            <p className="text-2xl text-center font-bold">56</p>
+                            <h2 className="text-sm font-semibold text-gray-500">Students</h2>
+                            <p className="text-2xl font-bold text-center">1,230</p>
+                        </CardContent>
+                    </Card>
+                    <Card className="flex-1">
+                        <CardContent className="">
+                            <h2 className="text-sm font-semibold text-gray-500">Teachers</h2>
+                            <p className="text-2xl font-bold text-center">67</p>
                         </CardContent>
                     </Card>
                 </div>
+                <Card>
+                    <CardContent className="">
+                        <h2 className="text-sm font-semibold text-gray-500">Employees</h2>
+                        <p className="text-2xl text-center font-bold">56</p>
+                    </CardContent>
+                </Card>
             </div>
             <div className="flex flex-col gap-4">
                 <Card className="bg-red-200">
@@ -87,6 +87,14 @@ export default function AdminDashboard() {
                     </CardContent>
                 </Card>
             </div>
+            {/* Calender */}
+            <Card className="flex items-center justify-center h-fit gap-2">
+                <h2 className="text-lg font-bold">Calender</h2>
+                <Calendar mode="single" selected={date} onSelect={setDate} className="" />
+                <div className="text-sm border px-4 py-1 rounded-sm bg-secondary text-white">
+                    <Link href={"/dashboard/admin/calender"}>Manage Calender</Link>
+                </div>
+            </Card>
 
             {/* Attendance Chart */}
             <Card className="col-span-1">
@@ -106,14 +114,7 @@ export default function AdminDashboard() {
                     </ResponsiveContainer>
                 </CardContent>
             </Card>
-            <Card className="flex items-center justify-center">
-                {/* Calender */}
-                <h2 className="text-lg font-bold">Calender</h2>
-                <Calendar mode="single" selected={date} onSelect={setDate} className="" />
-                <div className="text-sm border px-4 py-1 rounded-sm bg-secondary text-white">
-                    <Link href={"/dashboard/admin/calender"}>Manage Calender</Link>
-                </div>
-            </Card>
+
             {/* Fee Trend Chart */}
             <Card className="col-span-2">
                 <CardContent className="p-4">

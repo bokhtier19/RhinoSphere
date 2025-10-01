@@ -1,12 +1,14 @@
 "use client";
 
 import { Calendar } from "@/components/ui/calendar";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import React, { useState } from "react";
+import { notices } from "@/lib/notices";
 
 // Define COLORS array for the PieChart
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 import { Cell, Legend, Pie, PieChart, ResponsiveContainer, Tooltip } from "recharts";
+import Link from "next/link";
 
 const StudentDashboard = () => {
     const [date, setDate] = useState<Date | undefined>(new Date());
@@ -19,46 +21,57 @@ const StudentDashboard = () => {
     ];
 
     return (
-        <div className="grid grid-cols-3 gap-4">
-            <div className="flex gap-2 flex-col">
-                <Card>
-                    <CardContent className="p-2 px-4">
-                        <h2 className="text-2xl font-semibold text-gray-500 mb-4">Hi, Student</h2>
-                        <p className="">
-                            Welcome to your personal Profile.Manage and Stay upto dated with your academics. Submit assignments and School works through this portal. Dont forget to attend School
-                            regularly.
-                        </p>
+        <div className="grid grid-cols-4 gap-4">
+            <div>
+                <Card className="flex">
+                    <CardContent className="p-2 px-4 flex flex-col gap-4 text-sm">
+                        <div className="flex justify-between">
+                            <h2 className="text-2xl font-semibold text-gray-500 mb-4">Hi, Student</h2>
+                            <img src="/student.svg" alt="School Illustration" width={70} className="drop-shadow-xl" />
+                        </div>
+                        <p className="">Welcome to your personal Profile.Manage and Stay upto date with your academics.</p>
+                        <p>Submit assignments and School works through this portal. Dont forget to attend School regularly.</p>
                     </CardContent>
                 </Card>
-
-                <div className="gap-2 flex flex-col">
-                    <div className="flex w-full items-between gap-2">
-                        <Card className="flex-1">
-                            <CardContent className="">
-                                <h2 className="text-sm font-semibold text-gray-500">Attendance</h2>
-                                <p className="text-2xl font-bold text-center">87%</p>
-                            </CardContent>
-                        </Card>
-                        <Card className="flex-1">
-                            <CardContent className="">
-                                <h2 className="text-sm font-semibold text-gray-500">Task Completed</h2>
-                                <p className="text-2xl font-bold text-center">34</p>
-                            </CardContent>
-                        </Card>
-                    </div>
-                    <Card>
-                        <CardContent className="">
-                            <h2 className="text-sm font-semibold text-gray-500">Reward Points</h2>
-                            <p className="text-2xl text-center font-bold">1267</p>
+            </div>
+            <div className="gap-2 flex flex-col">
+                <div className="flex w-full items-between gap-2">
+                    <Card className="flex-1">
+                        <CardContent className="flex flex-col items-center justify-center">
+                            <h2 className="text-sm font-semibold text-gray-500">Attendance</h2>
+                            <p className="text-2xl font-bold">87%</p>
+                        </CardContent>
+                    </Card>
+                    <Card className="flex-1">
+                        <CardContent className="flex flex-col items-center justify-center">
+                            <h2 className="text-sm font-semibold text-gray-500 text-nowrap">Task Completed</h2>
+                            <p className="text-2xl font-bold text-center">34</p>
                         </CardContent>
                     </Card>
                 </div>
+                <Card>
+                    <CardContent className="flex flex-col justify-center items-center">
+                        <h2 className="text-sm font-semibold text-gray-500">Reward Points</h2>
+                        <p className="text-2xl text-center font-bold">1267</p>
+                    </CardContent>
+                </Card>
+                <Card>
+                    <CardContent className="flex flex-col justify-center items-center">
+                        <h2 className="text-sm font-semibold text-gray-500">Assignments Pending</h2>
+                        <p className="text-2xl text-center font-bold text-red-500">7</p>
+                    </CardContent>
+                </Card>
             </div>
 
             {/* Attendance Chart */}
-            <Card className="col-span-1">
-                <CardContent className="p-4">
-                    <h2 className="text-lg font-bold mb-4">Your Attendance</h2>
+            <Card className="col-span-1 h-fit ">
+                <CardContent className="p-2">
+                    <div className="flex justify-between items-center px-2">
+                        <h2 className=" font-semibold text-gray-500 mb-4">Your Attendance</h2>
+                        <Link className="text-xs underline" href={"/dashboard/noticeboard"}>
+                            View Report
+                        </Link>
+                    </div>
                     <ResponsiveContainer width="100%" height={250}>
                         <PieChart>
                             <Legend verticalAlign="bottom" align="center" iconType="square" />
@@ -72,8 +85,40 @@ const StudentDashboard = () => {
                     </ResponsiveContainer>
                 </CardContent>
             </Card>
-            {/* Calender */}
-            <Card className="flex items-center">
+            {/* Notice Board Card */}
+            <Card className="flex overflow-hidden ">
+                <CardContent className="">
+                    <div className="flex justify-between items-center">
+                        <h2 className=" font-semibold text-gray-500 mb-4">Latest Notices</h2>
+                        <Link className="text-xs underline" href={"/dashboard/noticeboard"}>
+                            View all
+                        </Link>
+                    </div>
+                    <div className="flex flex-col gap-4">
+                        {notices.slice(0, 2).map((notice) => (
+                            <Card key={notice.id} className="p-2">
+                                <CardHeader>
+                                    <CardTitle>{notice.title}</CardTitle>
+                                    <p className="text-sm text-muted-foreground ">Dated: {notice.date.toLocaleDateString()}</p>
+                                </CardHeader>
+                                <CardContent>
+                                    <p className="text-xs">{notice.content}</p>
+                                </CardContent>
+                            </Card>
+                        ))}
+                    </div>
+                </CardContent>
+            </Card>
+            <Card className="flex items-center h-fit ">
+                <Calendar mode="single" selected={date} onSelect={setDate} className="" />
+            </Card>
+            <Card className="flex items-center h-fit ">
+                <Calendar mode="single" selected={date} onSelect={setDate} className="" />
+            </Card>
+            <Card className="flex items-center h-fit ">
+                <Calendar mode="single" selected={date} onSelect={setDate} className="" />
+            </Card>
+            <Card className="flex items-center h-fit ">
                 <Calendar mode="single" selected={date} onSelect={setDate} className="" />
             </Card>
         </div>

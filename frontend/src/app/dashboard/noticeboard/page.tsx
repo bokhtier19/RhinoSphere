@@ -46,8 +46,8 @@ const AdminNoticeBoard = () => {
     };
 
     return (
-        <div className="p-6">
-            <h2 className="text-xl font-bold mb-4 ">School Noticeboard</h2>
+        <div className="p-6 w-full">
+            <h2 className="text-xl font-bold mb-4 w-full">School Noticeboard</h2>
             <div className="flex gap-4">
                 {/* Add Notice Form */}
                 <div className="mb-6 space-y-3 flex gap-2 flex-1 flex-col">
