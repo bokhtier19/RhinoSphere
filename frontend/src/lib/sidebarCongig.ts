@@ -16,6 +16,7 @@ import {
     Megaphone,
     PhoneCallIcon,
     VideoIcon,
+    MailIcon,
 } from "lucide-react";
 
 export const sidebarConfig: Record<string, { label: string; path: string; icon: any }[]> = {
@@ -26,7 +27,7 @@ export const sidebarConfig: Record<string, { label: string; path: string; icon: 
         { label: "Guardians", path: "/dashboard/admin/guardians", icon: UserStar },
         { label: "Students", path: "/dashboard/admin/students", icon: PenBoxIcon },
         { label: "Time Table", path: "/dashboard/timetable", icon: CalendarDays },
-        { label: "Message", path: "/dashboard/messages", icon: MessageCircle },
+        { label: "Mailbox", path: "/dashboard/messages", icon: MailIcon },
         { label: "Calender", path: "/dashboard/admin/calender", icon: Calendar },
         { label: "Fees", path: "/dashboard/admin/fees", icon: DollarSign },
         { label: "Noticeboard", path: "/dashboard/noticeboard", icon: Megaphone },

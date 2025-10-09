@@ -36,9 +36,11 @@ const LoginPage = () => {
     };
 
     return (
-        <div className="flex flex-col gap-6 items-center justify-center min-h-screen ">
-            <form className="flex flex-col shadow-2xl  gap-4 items-center justify-center  border-2 border-primary p-8 rounded-lg" onSubmit={handleLogin}>
-                <div className="flex gap-2 flex-col">
+        <div className="flex items-center justify-center min-h-screen ">
+            <form className="shadow-lg rounded-2xl flex flex-col gap-4 bg-card p-8 w-full max-w-md" onSubmit={handleLogin}>
+                <h2 className="text-2xl font-bold text-center mb-6">Login to an Account</h2>
+
+                <div className="flex gap-4 flex-col">
                     <p>Email:</p>
                     <input
                         type="email"
@@ -46,7 +48,7 @@ const LoginPage = () => {
                         onChange={(e) => {
                             setForm({ ...form, email: e.target.value });
                         }}
-                        className="w-full border-b border-gray-500 bg-transparent focus:outline-none focus:ring-0 focus:border-gray-500"
+                        className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
                         value={form.email}
                     />
                 </div>
@@ -58,16 +60,16 @@ const LoginPage = () => {
                         onChange={(e) => {
                             setForm({ ...form, password: e.target.value });
                         }}
-                        className="w-full border-b border-gray-500 bg-transparent focus:outline-none focus:ring-0 focus:border-gray-500"
+                        className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
                         value={form.password}
                     />
                 </div>
-                <button className="py-2 px-4 bg-primary text-white font-bold rounded-sm " type="submit">
+                <button className="py-3 px-4 bg-primary text-primary-foreground font-bold rounded-sm " type="submit">
                     {loading ? "Logging in..." : "Login"}
                 </button>
                 <div>
-                    <Link href={"/register"} className="">
-                        Need an Account ?<p className="underline text-primary text-center">Register</p>
+                    <Link href={"/register"} className="flex gap-4 justify-center">
+                        Need an Account ?<span className="underline text-primary font-semibold text-center">Register</span>
                     </Link>
                 </div>
             </form>

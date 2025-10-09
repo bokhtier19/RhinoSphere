@@ -1,7 +1,7 @@
 "use client";
 
 import { Card, CardContent } from "@/components/ui/card";
-import { Calendar, CalendarDayButton } from "@/components/ui/calendar";
+import { Calendar } from "@/components/ui/calendar";
 import { BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from "recharts";
 import { useState } from "react";
 import Link from "next/link";
@@ -67,23 +67,23 @@ export default function AdminDashboard() {
                 </Card>
             </div>
             <div className="flex flex-col gap-4">
-                <Card className="bg-red-200">
+                <Card className="">
                     <CardContent className="flex flex-col gap-3">
                         <p className="text-sm font-semibold text-gray-500">Total Expenditure</p>
                         <p className="text-center text-2xl font-bold text-red-500">₹1,87,000</p>
                     </CardContent>
                 </Card>
 
-                <Card className="bg-green-200">
+                <Card className="">
                     <CardContent className="flex flex-col gap-3">
                         <h2 className="text-sm font-semibold text-gray-500">Revenue Collected</h2>
                         <p className="text-2xl font-bold text-green-600  text-center">₹2,34,000</p>
                     </CardContent>
                 </Card>
-                <Card className="bg-blue-200">
+                <Card className="">
                     <CardContent className="flex flex-col gap-3">
                         <h2 className="text-sm font-semibold text-gray-500">Student Added This Month</h2>
-                        <p className="text-2xl font-bold text-green-600  text-center">+17</p>
+                        <p className="text-2xl font-bold text-green-600 dark:text-yellow-500 text-center">+17</p>
                     </CardContent>
                 </Card>
             </div>
@@ -91,7 +91,7 @@ export default function AdminDashboard() {
             <Card className="flex items-center justify-center h-fit gap-2">
                 <h2 className="text-lg font-bold">Calender</h2>
                 <Calendar mode="single" selected={date} onSelect={setDate} className="" />
-                <div className="text-sm border px-4 py-1 rounded-sm bg-secondary text-white">
+                <div className="text-sm border px-4 py-1 rounded-sm bg-accent-foreground">
                     <Link href={"/dashboard/admin/calender"}>Manage Calender</Link>
                 </div>
             </Card>
@@ -131,7 +131,7 @@ export default function AdminDashboard() {
             </Card>
 
             {/* Fee Status Chart */}
-            <Card className="col-span-2">
+            <Card className="col-span-2 border-none">
                 <CardContent className="p-4">
                     <h2 className="text-lg font-bold mb-4">Fees Paid vs Pending</h2>
                     <ResponsiveContainer width="100%" height={250}>

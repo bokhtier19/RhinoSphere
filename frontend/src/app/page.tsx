@@ -10,12 +10,12 @@ export default function WelcomePage() {
             {/* Logo / App name */}
             <div className="flex items-center gap-3 mb-6">
                 <GraduationCap className="h-12 w-12" />
-                <h1 className="text-4xl font-bold tracking-tight">RhinoSchool</h1>
+                <h1 className="text-4xl font-bold tracking-tight">RhinoSphere</h1>
             </div>
 
             {/* Tagline */}
             <p className="text-lg mb-10 text-center max-w-lg">
-                Welcome to <span className="font-semibold">RhinoSchool</span> – the smart school management system for students, teachers, guardians, and admins.
+                Welcome to <span className="font-semibold">RhinoSphere</span> – the smart school management system for students, teachers, guardians, and admins.
             </p>
 
             {/* CTA Buttons */}
@@ -34,17 +34,17 @@ export default function WelcomePage() {
 
             {/* Feature Highlights */}
             <div className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-8 w-full max-w-5xl px-6">
-                <div className="flex flex-col items-center text-center p-6 rounded-xl shadow-md ">
+                <div className="flex flex-col items-center text-center p-6 rounded-xl shadow-lg shadow-primary-dark">
                     <School className="h-10 w-10  mb-4" />
                     <h3 className="font-semibold text-lg">Smart Dashboard</h3>
                     <p className="text-sm  mt-2">Manage classes, schedules, and fees in one place.</p>
                 </div>
-                <div className="flex flex-col items-center text-center p-6 rounded-xl shadow-md">
+                <div className="flex flex-col items-center text-center p-6 rounded-xl shadow-lg shadow-primary-dark">
                     <Users className="h-10 w-10  mb-4" />
                     <h3 className="font-semibold text-lg">Easy Communication</h3>
                     <p className="text-sm   mt-2">Connect teachers, guardians, and students instantly.</p>
                 </div>
-                <div className="flex flex-col items-center text-center p-6 rounded-xl shadow-md">
+                <div className="flex flex-col items-center text-center p-6 rounded-xl shadow-lg shadow-primary-dark">
                     <GraduationCap className="h-10 w-10  mb-4" />
                     <h3 className="font-semibold text-lg">Student Success</h3>
                     <p className="text-sm  mt-2">Track progress and help students achieve more.</p>

@@ -48,13 +48,19 @@ const RegisterPage = () => {
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gray-100">
-            <div className="bg-white shadow-lg rounded-2xl flex flex-col gap-4 p-8 w-full max-w-md">
+        <div className="flex items-center justify-center min-h-screen ">
+            <div className=" shadow-lg rounded-2xl flex flex-col gap-4 p-8 w-full max-w-md bg-card">
                 <h2 className="text-2xl font-bold text-center mb-6">Create an Account</h2>
 
                 <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                    <p>Email:</p>
+
                     <input type="text" name="name" placeholder="Full Name" value={form.name} onChange={handleChange} className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500" />
+                    <p>Full Name:</p>
+
                     <input type="email" name="email" placeholder="Email" value={form.email} onChange={handleChange} className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500" />
+                    <p>Password:</p>
+
                     <input
                         type="password"
                         name="password"
@@ -74,7 +80,7 @@ const RegisterPage = () => {
                                     key={role}
                                     onClick={() => handleRoleSelect(role)}
                                     className={`p-3 rounded-lg border text-center font-medium transition ${
-                                        form.role === role ? "bg-blue-500 text-white border-blue-600" : "bg-gray-100 text-gray-700 border-gray-300 hover:bg-gray-200"
+                                        form.role === role ? "bg-primary text-primary-foreground border-blue-600" : "text-gray-700 border-gray-300 hover:bg-gray-200"
                                     }`}>
                                     {role.charAt(0).toUpperCase() + role.slice(1)}
                                 </button>
@@ -82,12 +88,12 @@ const RegisterPage = () => {
                         </div>
                     </div>
 
-                    <button type="submit" disabled={loading} className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition">
+                    <button type="submit" disabled={loading} className="w-full bg-primary text-primary-foreground py-3 rounded-lg hover:bg-blue-700 transition">
                         {loading ? "Registering" : "Register"}
                     </button>
                     <div>
-                        <Link href={"/login"} className="flex gap-4">
-                            Already have an Account ?<span className="underline text-primary text-center">Login</span>
+                        <Link href={"/login"} className="flex gap-4 justify-center">
+                            Already have an Account ?<span className="underline text-primary font-semibold text-center">Login</span>
                         </Link>
                     </div>
                 </form>
