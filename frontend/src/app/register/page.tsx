@@ -88,12 +88,12 @@ const RegisterPage = () => {
                         </div>
                     </div>
 
-                    <button type="submit" disabled={loading} className="w-full bg-primary text-primary-foreground py-3 rounded-lg hover:bg-blue-700 transition">
+                    <button type="submit" disabled={loading} className="w-full bg-primary text-primary-foreground hover:cursor-pointer py-3 rounded-lg hover:bg-blue-700 transition">
                         {loading ? "Registering" : "Register"}
                     </button>
                     <div>
                         <Link href={"/login"} className="flex gap-4 justify-center">
-                            Already have an Account ?<span className="underline text-primary font-semibold text-center">Login</span>
+                            Already have an Account ?<span className="underline text-primary hover:cursor-pointer font-semibold text-center">Login</span>
                         </Link>
                     </div>
                 </form>

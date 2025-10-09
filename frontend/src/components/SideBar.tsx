@@ -33,7 +33,7 @@ const SideBar = () => {
     const router = useRouter();
 
     return (
-        <aside className="w-56 flex flex-col h-screen p-4 gap-12 rounded-l-2xl bg-card text-foreground">
+        <aside className="w-56 flex flex-col h-screen p-4 gap-12 rounded-l-2xl bg-secondary">
             <div className="flex gap-2 text-2xl mb-5 font-bold items-center">
                 <Volleyball />
                 RhinoSphere

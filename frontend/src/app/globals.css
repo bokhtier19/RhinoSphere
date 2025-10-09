@@ -15,7 +15,7 @@
     --color-primary: oklch(0.205 0 0);
     --color-primary-foreground: oklch(0.985 0 0);
 
-    --color-secondary: oklch(0.97 0 0);
+    --color-secondary: oklch(0.87 0 0);
     --color-secondary-foreground: oklch(0.205 0 0);
 
     --color-muted: oklch(0.97 0 0);
@@ -47,7 +47,7 @@
     --color-primary: oklch(0.922 0 0);
     --color-primary-foreground: oklch(0.205 0 0);
 
-    --color-secondary: oklch(0.269 0 0);
+    --color-secondary: oklch(0.37 0 0);
     --color-secondary-foreground: oklch(0.985 0 0);
 
     --color-muted: oklch(0.269 0 0);
@@ -85,6 +85,12 @@ body {
 }
 .bg-primary {
     background-color: var(--color-primary);
+}
+.bg-secondary {
+    background-color: var(--color-secondary);
+}
+.text-secondary-foreground {
+    color: var(--color-secondary-foreground);
 }
 .text-primary-foreground {
     color: var(--color-primary-foreground);

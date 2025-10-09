@@ -64,12 +64,12 @@ const LoginPage = () => {
                         value={form.password}
                     />
                 </div>
-                <button className="py-3 px-4 bg-primary text-primary-foreground font-bold rounded-sm " type="submit">
+                <button className="py-3 px-4 bg-primary text-primary-foreground font-bold rounded-sm hover:cursor-pointer" type="submit">
                     {loading ? "Logging in..." : "Login"}
                 </button>
                 <div>
                     <Link href={"/register"} className="flex gap-4 justify-center">
-                        Need an Account ?<span className="underline text-primary font-semibold text-center">Register</span>
+                        Need an Account ?<span className="underline text-primary hover:cursor-pointer font-semibold text-center">Register</span>
                     </Link>
                 </div>
             </form>
