@@ -3,8 +3,7 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { jwtDecode } from "jwt-decode";
-import { Loader } from "lucide-react";
-import ThemeTestCard from "@/components/ThemeTestCard";
+import Loader from "@/components/Loader";
 
 interface DecodedToken {
     userId: number;
@@ -37,9 +36,5 @@ export default function DashboardPage() {
             router.push("/login");
         }
     }, [router]);
-    return (
-        <div className="flex items-center justify-center h-screen">
-            <Loader className="h-5 w-5 animate-spin text-primary" />
-        </div>
-    );
+    return <Loader />;
 }

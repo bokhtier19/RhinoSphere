@@ -71,7 +71,7 @@ const AdminCalendarPage = () => {
     };
 
     return (
-        <div className="p-6">
+        <div className="p-6 w-full">
             <h2 className="text-xl font-bold mb-4">School Calendar & Plans</h2>
             <div className="h-[500px]">
                 <Calendar localizer={localizer} events={events} startAccessor="start" endAccessor="end" style={{ height: "100%" }} selectable onSelectSlot={handleSelectSlot} popup />

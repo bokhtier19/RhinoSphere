@@ -21,7 +21,7 @@ const TimeTablePage = () => {
     const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
     return (
-        <div className="p-6">
+        <div className="p-6 w-full">
             <h2 className="text-2xl font-bold mb-6">Class Timetable</h2>
             <div className="overflow-x-auto">
                 <table className="w-full border border-gray-300 rounded-lg">

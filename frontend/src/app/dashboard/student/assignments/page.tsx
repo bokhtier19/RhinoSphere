@@ -1,9 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Upload } from "lucide-react";
 
 interface Assignment {
@@ -49,7 +46,7 @@ const StudentAssignments = () => {
                         <CardContent>
                             <p>{assignment.description}</p>
                         </CardContent>
-                        <div className="flex font-semibold gap-2 text-sm hover:cursor-pointer items-center px-8 border w-fit py-1 mx-4 rounded-sm">
+                        <div className="flex bg-primary text-primary-foreground font-semibold gap-2 text-sm hover:cursor-pointer items-center px-8 border w-fit py-1 mx-4 rounded-sm">
                             <Upload />
                             Upload Assignment
                         </div>

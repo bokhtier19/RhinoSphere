@@ -31,15 +31,11 @@ const UserPage = () => {
     }, []);
 
     if (loading) {
-        return (
-            <div className="flex items-center justify-center h-screen">
-                <Loader className="h-8 w-8 animate-spin text-primary" />
-            </div>
-        );
+        return <Loader />;
     }
 
     return (
-        <div className="p-6">
+        <div className="p-6 w-full">
             <h2 className="text-xl font-bold mb-4">Manage All Users</h2>
             <table className="w-full">
                 <thead>

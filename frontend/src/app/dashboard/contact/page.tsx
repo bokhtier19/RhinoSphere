@@ -50,7 +50,7 @@ const ContactPage = () => {
                                 placeholder="Write your message..."
                             />
                         </div>
-                        <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">
+                        <button type="submit" className="w-full bg-primary text-primary-foreground hover:cursor-pointer  py-2 rounded hover:bg-blue-700">
                             Send Message
                         </button>
                     </form>

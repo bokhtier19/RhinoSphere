@@ -43,7 +43,7 @@ const AdminMessagesPage = () => {
     };
 
     return (
-        <div className="p-6">
+        <div className="p-6 w-full">
             <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
                 <Mail className="h-5 w-5" /> Admin Messages
             </h2>
