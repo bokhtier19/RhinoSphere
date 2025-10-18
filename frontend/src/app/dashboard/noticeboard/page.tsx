@@ -53,7 +53,9 @@ const AdminNoticeBoard = () => {
                 <div className="mb-6 space-y-3 flex gap-2 flex-1 flex-col">
                     <Input placeholder="Notice Title" value={newTitle} onChange={(e) => setNewTitle(e.target.value)} />
                     <Textarea placeholder="Notice Content" value={newContent} onChange={(e) => setNewContent(e.target.value)} />
-                    <Button onClick={addNotice}>Post Notice</Button>
+                    <Button onClick={addNotice} className="hover:cursor-pointer">
+                        Post Notice
+                    </Button>
                 </div>
 
                 {/* Notices List */}
