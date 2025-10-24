@@ -33,7 +33,7 @@ const SideBar = () => {
     const router = useRouter();
 
     return (
-        <aside className="w-56 flex flex-col h-screen p-4 gap-12 rounded-l-2xl bg-[var(--color-primary)] text-[var(--color-text-primary)]">
+        <aside className="w-56 flex flex-col bg-sidebar-bg  text-white h-screen p-4 gap-12 rounded-l-2xl">
             <Link href={"/"}>
                 <div className="flex gap-2 text-2xl mb-5 font-bold items-center">
                     <Volleyball />
@@ -42,7 +42,7 @@ const SideBar = () => {
             </Link>
             <nav className="flex flex-col">
                 {menuItems.map((item) => (
-                    <div className="hover:bg-secondary-dark rounded-sm">
+                    <div className="hover:bg-primary-light rounded-sm">
                         <Link key={item.path} href={item.path} className="gap-2 flex items-center p-2 rounded-md">
                             <item.icon className="w-5 h-5" />
                             <span>{item.label}</span>

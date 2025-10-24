@@ -48,7 +48,7 @@ const LoginPage = () => {
                         onChange={(e) => {
                             setForm({ ...form, email: e.target.value });
                         }}
-                        className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 bg-white"
+                        className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 "
                         value={form.email}
                     />
                 </div>
@@ -60,11 +60,11 @@ const LoginPage = () => {
                         onChange={(e) => {
                             setForm({ ...form, password: e.target.value });
                         }}
-                        className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 bg-white"
+                        className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
                         value={form.password}
                     />
                 </div>
-                <button className="py-3 px-4 bg-secondary text-primary-foreground font-bold rounded-sm hover:cursor-pointer" type="submit">
+                <button className="py-3 px-4 bg-secondary text-button-text  hover:bg-secondary-light font-bold rounded-sm hover:cursor-pointer" type="submit">
                     {loading ? "Logging in..." : "Login"}
                 </button>
                 <div>

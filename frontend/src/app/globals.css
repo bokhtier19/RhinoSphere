@@ -1,102 +1,114 @@
 @import "tailwindcss";
-@plugin "tailwindcss-animate";
 
-/* 🌞 LIGHT THEME */
 :root {
-    /* 🎨 Brand Colors */
-    --color-primary: #0a2e6f;
-    --color-primary-light: #1a4bbe;
-    --color-primary-bright: #2496ff;
-    --color-primary-gradient-end: #0c67de;
+    --background: #f4f5f7;
+    --foreground: #111827;
 
-    /* ✨ Accents */
-    --color-accent-yellow: #ffc436;
-    --color-accent-white: #ffffff;
+    /* Premium Palette */
+    --primary: #6366f1; /* Indigo 500 */
+    --primary-light: #818cf8; /* Indigo 400 */
+    --primary-bright: #a5b4fc; /* Indigo 300 */
+    --primary-gradient-end: #4f46e5; /* Indigo 600 */
 
-    /* ⚙️ Neutrals */
-    --color-background: #f7f9fb;
-    --color-foreground: #ffffff;
-    --color-border: #e0e6ed;
+    --secondary: #14b8a6; /* Teal 500 */
+    --secondary-light: #2dd4bf; /* Teal 400 */
 
-    /* ✍️ Text */
-    --color-text-primary: #1c1c1c;
-    --color-text-secondary: #5f6b7a;
+    --accent-yellow: #eab308; /* Amber 500 */
+    --accent-white: #ffffff;
 
-    /* 🧭 Sidebar */
-    --color-sidebar-bg: #f7f9fb;
-    --color-sidebar-hover: #e8eff6;
+    --border: #e5e7eb; /* Gray 200 */
+    --card: #ffffff;
+    --surface: #f9fafb;
 
-    /* 🔘 Buttons */
-    --color-button: #2496ff;
-    --color-button-hover: #0c67de;
-    --color-button-text: #ffffff;
+    --text-primary: #111827;
+    --text-secondary: #6b7280;
+
+    --sidebar-bg: #4338ca;
+    --sidebar-hover: #3730a3;
+
+    --button: #6366f1;
+    --button-hover: #4f46e5;
+    --button-text: #ffffff;
+
+    --font-sans: "Inter", sans-serif;
+    --font-heading: "Poppins", sans-serif;
 }
 
-/* 🌚 DARK THEME */
 .dark {
-    --color-primary: #1a4bbe;
-    --color-primary-light: #2496ff;
-    --color-primary-bright: #3ba8ff;
-    --color-primary-gradient-end: #0a2e6f;
+    --background: #0f172a;
+    --foreground: #f9fafb;
 
-    --color-accent-yellow: #ffd45a;
-    --color-accent-white: #f5f5f5;
+    --primary: #818cf8; /* Indigo 400 */
+    --primary-light: #a5b4fc; /* Indigo 300 */
+    --primary-bright: #c7d2fe; /* Indigo 200 */
+    --primary-gradient-end: #3730a3; /* Indigo 800 */
 
-    --color-background: #121212;
-    --color-foreground: #1e1e1e;
-    --color-border: #333333;
+    --secondary: #2dd4bf; /* Teal 400 */
+    --secondary-light: #5eead4; /* Teal 300 */
 
-    --color-text-primary: #e0e0e0;
-    --color-text-secondary: #a0a0a0;
+    --accent-yellow: #facc15; /* Amber 400 */
+    --accent-white: #f9fafb;
 
-    --color-sidebar-bg: #1e1e1e;
-    --color-sidebar-hover: #333333;
+    --border: #334155; /* Slate 700 */
+    --card: #1e293b;
+    --surface: #1e293b;
 
-    --color-button: #2496ff;
-    --color-button-hover: #1a4bbe;
-    --color-button-text: #ffffff;
+    --text-primary: #f9fafb;
+    --text-secondary: #94a3b8;
+
+    --sidebar-bg: #1e1b4b;
+    --sidebar-hover: #312e81;
+
+    --button: #818cf8;
+    --button-hover: #6366f1;
+    --button-text: #ffffff;
 }
 
-/* 🧱 Global Layout */
+@theme inline {
+    --color-primary: var(--primary);
+    --color-primary-light: var(--primary-light);
+    --color-primary-bright: var(--primary-bright);
+    --color-primary-gradient-end: var(--primary-gradient-end);
+
+    --color-secondary: var(--secondary);
+    --color-secondary-light: var(--secondary-light);
+
+    --color-accent-yellow: var(--accent-yellow);
+    --color-accent-white: var(--accent-white);
+
+    --color-border: var(--border);
+    --color-card: var(--card);
+    --color-surface: var(--surface);
+
+    --color-text-primary: var(--text-primary);
+    --color-text-secondary: var(--text-secondary);
+
+    --color-sidebar-bg: var(--sidebar-bg);
+    --color-sidebar-hover: var(--sidebar-hover);
+
+    --color-button: var(--button);
+    --color-button-hover: var(--button-hover);
+    --color-button-text: var(--button-text);
+
+    --font-sans: var(--font-geist-sans);
+    --font-mono: var(--font-geist-mono);
+}
+
 body {
-    background-color: var(--color-background);
-    color: var(--color-text-primary);
-    font-family: "Inter", system-ui, sans-serif;
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans, Arial, Helvetica, sans-serif);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    scroll-behavior: smooth;
 }
 
-/* 🧭 Sidebar */
-.sidebar {
-    background: var(--color-sidebar-bg);
-}
-.sidebar:hover {
-    background: var(--color-sidebar-hover);
+/* Hide scrollbar for all browsers */
+::-webkit-scrollbar {
+    display: none;
 }
 
-/* 🪪 Card */
-.card {
-    background: var(--color-foreground);
-    border: 1px solid var(--color-border);
-    color: var(--color-text-primary);
-}
-
-/* 🔆 Header / Hero */
-.header {
-    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-gradient-end) 100%);
-    color: var(--color-accent-white);
-}
-
-/* 🔘 Buttons */
-button,
-.btn {
-    background: var(--color-button);
-    color: var(--color-button-text);
-    border-radius: 8px;
-    padding: 0.5rem 1rem;
-    font-weight: 600;
-    transition: background 0.3s ease;
-}
-
-button:hover,
-.btn:hover {
-    background: var(--color-button-hover);
+html,
+body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }

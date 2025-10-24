@@ -5,6 +5,7 @@ import { Calendar } from "@/components/ui/calendar";
 import { BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from "recharts";
 import { useState } from "react";
 import Link from "next/link";
+import { Bell, ClipboardCheck, Wrench, MessageCircle, FileText, AlertCircle, GraduationCap } from "lucide-react";
 
 const feeTrendData = [
     { month: "Jan", collected: 12000 },
@@ -30,123 +31,189 @@ export default function AdminDashboard() {
     const [date, setDate] = useState<Date | undefined>(new Date());
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 p-2">
-            {/* Stats Cards */}
-            <div className="flex gap-2 flex-col text-xs">
-                <Card className="flex">
-                    <CardContent className="p-2 px-4 flex flex-col gap-4 text-sm">
-                        <div className="flex justify-between">
-                            <h2 className="text-2xl font-semibold text-gray-500 mb-4">Hi, Admin</h2>
-                            <img src="/admin.svg" alt="School Illustration" width={170} className="drop-shadow-xl" />
+        <div className="p-6 space-y-6">
+            {/* School Info Header */}
+            <Card className="bg-card border-border">
+                <CardContent className="flex flex-col sm:flex-row sm:items-center sm:justify-between py-4">
+                    <div>
+                        <h1 className="text-2xl font-bold text-primary">Starlight International School</h1>
+                        <p className="text-muted-foreground text-sm mt-1">21 Garden View Road, Greenfield City, Mumbai, India</p>
+                        <p className="text-muted-foreground text-sm">Contact: +91 98765 43210</p>
+                    </div>
+                    <img src="/school.svg" alt="Admin Illustration" width={250} className="drop-shadow-md" />
+                </CardContent>
+            </Card>
+
+            {/* Top Welcome and Stats */}
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+                {/* Welcome Card */}
+                <Card className="col-span-1 md:col-span-2 bg-card border-border">
+                    <CardContent className="p-4">
+                        <div className="flex flex-row justify-between mb-3">
+                            <div className="flex flex-col justify-around">
+                                <h2 className="text-xl font-semibold text-muted-foreground">Welcome, Admin</h2>
+                                <p className="text-sm text-muted-foreground">Manage your school’s daily operations, monitor finances, attendance, and communication — all from one place.</p>
+                            </div>
+                            <img src="/admin.svg" alt="Admin Illustration" width={130} className="drop-shadow-md" />
                         </div>
-                        <p>Welcome to the schools admin Dashboard.</p>
-                        <p>Maintain The Schools Online activities , finances , notices and alerts with Ease. Keep track of your students , teachers and guardians with just a click.</p>
+                    </CardContent>
+                </Card>
+                {/* Calender card */}
+                <Card className="bg-card border-border">
+                    <CardContent className="p-4 flex flex-col items-center">
+                        <h2 className="text-lg font-semibold mb-2 text-primary">Calendar</h2>
+                        <Calendar mode="single" selected={date} onSelect={setDate} />
+                        <Link href="/dashboard/admin/calender" className="text-xs mt-3 px-3 py-1 rounded-md bg-primary text-primary-foreground hover:opacity-80 transition">
+                            Manage Calendar
+                        </Link>
+                    </CardContent>
+                </Card>
+                {/* Small Summary Cards */}
+                <Card className="bg-card border-border">
+                    <CardContent className="p-4 text-center">
+                        <h2 className="text-sm text-muted-foreground">Students</h2>
+                        <p className="text-2xl font-bold text-primary">1,230</p>
+                    </CardContent>
+                </Card>
+
+                <Card className="bg-card border-border">
+                    <CardContent className="p-4 text-center">
+                        <h2 className="text-sm text-muted-foreground">Teachers</h2>
+                        <p className="text-2xl font-bold text-primary">67</p>
                     </CardContent>
                 </Card>
             </div>
-            <div className="gap-2 flex flex-col">
-                <div className="flex w-full items-between gap-2">
-                    <Card className="flex-1">
-                        <CardContent className="">
-                            <h2 className="text-sm font-semibold text-gray-500">Students</h2>
-                            <p className="text-2xl font-bold text-center">1,230</p>
-                        </CardContent>
-                    </Card>
-                    <Card className="flex-1">
-                        <CardContent className="">
-                            <h2 className="text-sm font-semibold text-gray-500">Teachers</h2>
-                            <p className="text-2xl font-bold text-center">67</p>
-                        </CardContent>
-                    </Card>
-                </div>
-                <Card>
-                    <CardContent className="">
-                        <h2 className="text-sm font-semibold text-gray-500">Employees</h2>
-                        <p className="text-2xl text-center font-bold">56</p>
+
+            {/* Finance & Calendar Section */}
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <Card className="bg-card border-border">
+                    <CardContent className="p-4 text-center">
+                        <h2 className="text-sm text-muted-foreground">Total Expenditure</h2>
+                        <p className="text-2xl font-bold text-red-500">₹1,87,000</p>
+                    </CardContent>
+                </Card>
+
+                <Card className="bg-card border-border">
+                    <CardContent className="p-4 text-center">
+                        <h2 className="text-sm text-muted-foreground">Revenue Collected</h2>
+                        <p className="text-2xl font-bold text-green-500">₹2,34,000</p>
+                    </CardContent>
+                </Card>
+
+                <Card className="bg-card border-border">
+                    <CardContent className="p-4 text-center">
+                        <h2 className="text-sm text-muted-foreground">Students Added This Month</h2>
+                        <p className="text-2xl font-bold text-blue-500">+17</p>
                     </CardContent>
                 </Card>
             </div>
-            <div className="flex flex-col gap-4">
-                <Card className="">
-                    <CardContent className="flex flex-col gap-3">
-                        <p className="text-sm font-semibold text-gray-500">Total Expenditure</p>
-                        <p className="text-center text-2xl font-bold text-red-500">₹1,87,000</p>
+
+            {/* Charts */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <Card className="bg-card border-border">
+                    <CardContent className="p-4">
+                        <h2 className="text-lg font-semibold mb-4 text-primary">Student Attendance</h2>
+                        <ResponsiveContainer width="100%" height={250}>
+                            <PieChart>
+                                <Legend verticalAlign="bottom" align="center" iconType="circle" />
+                                <Pie data={attendanceStatus} cx="50%" cy="50%" outerRadius={80} dataKey="value" label>
+                                    {attendanceStatus.map((entry, index) => (
+                                        <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                                    ))}
+                                </Pie>
+                                <Tooltip />
+                            </PieChart>
+                        </ResponsiveContainer>
                     </CardContent>
                 </Card>
 
-                <Card className="">
-                    <CardContent className="flex flex-col gap-3">
-                        <h2 className="text-sm font-semibold text-gray-500">Revenue Collected</h2>
-                        <p className="text-2xl font-bold text-green-600  text-center">₹2,34,000</p>
-                    </CardContent>
-                </Card>
-                <Card className="">
-                    <CardContent className="flex flex-col gap-3">
-                        <h2 className="text-sm font-semibold text-gray-500">Student Added This Month</h2>
-                        <p className="text-2xl font-bold text-green-600 dark:text-yellow-500 text-center">+17</p>
+                <Card className="bg-card border-border md:col-span-2">
+                    <CardContent className="p-4">
+                        <h2 className="text-lg font-semibold mb-4 text-primary">Fee Collection Trend</h2>
+                        <ResponsiveContainer width="100%" height={250}>
+                            <BarChart data={feeTrendData}>
+                                <XAxis dataKey="month" />
+                                <YAxis />
+                                <Tooltip />
+                                <Bar dataKey="collected" fill="#3B82F6" radius={[6, 6, 0, 0]} />
+                            </BarChart>
+                        </ResponsiveContainer>
                     </CardContent>
                 </Card>
             </div>
-            {/* Calender */}
-            <Card className="flex items-center justify-center h-fit gap-2">
-                <h2 className="text-lg font-bold">Calender</h2>
-                <Calendar mode="single" selected={date} onSelect={setDate} className="" />
-                <div className="text-sm border px-4 py-1 rounded-sm bg-accent-foreground">
-                    <Link href={"/dashboard/admin/calender"}>Manage Calender</Link>
-                </div>
-            </Card>
 
-            {/* Attendance Chart */}
-            <Card className="col-span-1">
-                <CardContent className="p-2 flex flex-col justify-center items-center">
-                    <h2 className="text-lg font-bold">Student Attendance</h2>
-                    <p className="text-sm text-secondary">Date: {new Date().toLocaleDateString()}</p>
-                    <ResponsiveContainer width="100%" height={250}>
-                        <PieChart>
-                            <Legend verticalAlign="bottom" align="center" iconType="square" />
-                            <Pie data={attendanceStatus} cx="50%" cy="50%" outerRadius={80} dataKey="value" label>
-                                {attendanceStatus.map((entry, index) => (
-                                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                                ))}
-                            </Pie>
-                            <Tooltip />
-                        </PieChart>
-                    </ResponsiveContainer>
-                </CardContent>
-            </Card>
+            {/* Activity Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <Card className="bg-card border-border">
+                    <CardContent className="flex items-center gap-3 p-4">
+                        <Bell className="text-yellow-500 h-6 w-6" />
+                        <div>
+                            <h2 className="font-semibold text-sm">Pending Notifications</h2>
+                            <p className="text-2xl font-bold">12</p>
+                        </div>
+                    </CardContent>
+                </Card>
 
-            {/* Fee Trend Chart */}
-            <Card className="col-span-2">
-                <CardContent className="p-4">
-                    <h2 className="text-lg font-bold mb-4">Fee Collection Trend</h2>
-                    <ResponsiveContainer width="100%" height={250}>
-                        <BarChart data={feeTrendData}>
-                            <XAxis dataKey="month" />
-                            <YAxis />
-                            <Tooltip />
-                            <Bar dataKey="collected" fill="#3B82F6" radius={[6, 6, 0, 0]} />
-                        </BarChart>
-                    </ResponsiveContainer>
-                </CardContent>
-            </Card>
+                <Card className="bg-card border-border">
+                    <CardContent className="flex items-center gap-3 p-4">
+                        <ClipboardCheck className="text-blue-500 h-6 w-6" />
+                        <div>
+                            <h2 className="font-semibold text-sm">Assignments Submitted</h2>
+                            <p className="text-2xl font-bold">356</p>
+                        </div>
+                    </CardContent>
+                </Card>
 
-            {/* Fee Status Chart */}
-            <Card className="col-span-2 border-none">
-                <CardContent className="p-4">
-                    <h2 className="text-lg font-bold mb-4">Fees Paid vs Pending</h2>
-                    <ResponsiveContainer width="100%" height={250}>
-                        <PieChart>
-                            <Pie data={feeStatusData} cx="50%" cy="50%" outerRadius={100} dataKey="value" label>
-                                {feeStatusData.map((entry, index) => (
-                                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                                ))}
-                            </Pie>
-                            <Legend verticalAlign="bottom" align="left" iconType="triangle" />
-                            <Tooltip />
-                        </PieChart>
-                    </ResponsiveContainer>
-                </CardContent>
-            </Card>
+                <Card className="bg-card border-border">
+                    <CardContent className="flex items-center gap-3 p-4">
+                        <MessageCircle className="text-green-500 h-6 w-6" />
+                        <div>
+                            <h2 className="font-semibold text-sm">Support Tickets</h2>
+                            <p className="text-2xl font-bold">5</p>
+                        </div>
+                    </CardContent>
+                </Card>
+
+                <Card className="bg-card border-border">
+                    <CardContent className="flex items-center gap-3 p-4">
+                        <Wrench className="text-orange-500 h-6 w-6" />
+                        <div>
+                            <h2 className="font-semibold text-sm">Maintenance Tasks</h2>
+                            <p className="text-2xl font-bold">3</p>
+                        </div>
+                    </CardContent>
+                </Card>
+            </div>
+
+            {/* Notices and Alerts */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <Card className="bg-card border-border">
+                    <CardContent className="p-4 flex items-start gap-3">
+                        <FileText className="text-purple-500 h-6 w-6 mt-1" />
+                        <div>
+                            <h2 className="font-semibold text-sm mb-2">Recent Notices</h2>
+                            <ul className="text-xs text-muted-foreground space-y-1 list-disc ml-4">
+                                <li>Exam schedule released for Term 2</li>
+                                <li>Holiday on Nov 5 (Festival)</li>
+                                <li>Parent-teacher meeting next week</li>
+                            </ul>
+                        </div>
+                    </CardContent>
+                </Card>
+
+                <Card className="bg-card border-border">
+                    <CardContent className="p-4 flex items-start gap-3">
+                        <AlertCircle className="text-red-500 h-6 w-6 mt-1" />
+                        <div>
+                            <h2 className="font-semibold text-sm mb-2">System Alerts</h2>
+                            <ul className="text-xs text-muted-foreground space-y-1 list-disc ml-4">
+                                <li>Low attendance warning in Grade 10</li>
+                                <li>Fee payment delay for 4 students</li>
+                            </ul>
+                        </div>
+                    </CardContent>
+                </Card>
+            </div>
         </div>
     );
 }

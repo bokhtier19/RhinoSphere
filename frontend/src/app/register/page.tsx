@@ -79,8 +79,8 @@ const RegisterPage = () => {
                                     type="button"
                                     key={role}
                                     onClick={() => handleRoleSelect(role)}
-                                    className={`p-3 rounded-lg border text-center font-medium transition ${
-                                        form.role === role ? "bg-primary text-primary-foreground border-blue-600" : "text-gray-700 border-gray-300 hover:bg-gray-200"
+                                    className={`p-3 rounded-lg border hover:cursor-pointer text-center font-medium transition ${
+                                        form.role === role ? "bg-secondary  text-text-primary border-blue-600" : "text-gray-700 border-gray-300 hover:bg-gray-200"
                                     }`}>
                                     {role.charAt(0).toUpperCase() + role.slice(1)}
                                 </button>
@@ -88,7 +88,7 @@ const RegisterPage = () => {
                         </div>
                     </div>
 
-                    <button type="submit" disabled={loading} className="w-full bg-primary text-primary-foreground hover:cursor-pointer py-3 rounded-lg hover:bg-blue-700 transition">
+                    <button type="submit" disabled={loading} className="w-full bg-secondary text-button-text hover:cursor-pointer py-3 rounded-lg hover:bg-secondary-light transition">
                         {loading ? "Registering" : "Register"}
                     </button>
                     <div>

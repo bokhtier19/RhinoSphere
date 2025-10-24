@@ -2,29 +2,34 @@
 
 import { useRouter } from "next/navigation";
 import React from "react";
-import { User, Bell, Settings, Sun } from "lucide-react";
+import { User, Bell, Settings, Search } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
     const router = useRouter();
+
     return (
-        <div>
-            {/* Navbar */}
-            <nav className="flex justify-end items-center   px-6 py-4 ">
-                <div className="flex gap-4 items-center">
-                    <ThemeToggle />
-                    <a href="/dashboard/notifications" className="hover:underline">
-                        <Settings />
-                    </a>
-                    <a href="/dashboard/notifications" className="hover:underline">
-                        <Bell />
-                    </a>
-                    <a href="/dashboard/profile" className="hover:underline border rounded-full border-secondary-dark p-2 bg-secondary">
-                        <User />
-                    </a>
-                </div>
-            </nav>
-        </div>
+        <nav className="flex justify-between items-center px-6 py-4 bg-background/60 backdrop-blur-sm border-b border-border">
+            {/* Search Bar */}
+            <div className="flex items-center gap-2 w-full max-w-sm bg-card border border-border rounded-xl px-3 py-2 shadow-sm">
+                <Search className="w-4 h-4 text-muted-foreground" />
+                <input type="text" placeholder="Search anything..." className="bg-transparent w-full outline-none text-sm text-foreground placeholder:text-muted-foreground" />
+            </div>
+
+            {/* Right Section */}
+            <div className="flex gap-4 items-center">
+                <ThemeToggle />
+                <button onClick={() => router.push("/dashboard/settings")} className="hover:text-primary transition">
+                    <Settings className="w-5 h-5" />
+                </button>
+                <button onClick={() => router.push("/dashboard/notifications")} className="hover:text-primary transition">
+                    <Bell className="w-5 h-5" />
+                </button>
+                <button onClick={() => router.push("/dashboard/profile")} className="border rounded-full text-white border-border p-2 bg-primary hover:bg-secondary/80 transition">
+                    <User className="w-5 h-5" />
+                </button>
+            </div>
+        </nav>
     );
 };
 
