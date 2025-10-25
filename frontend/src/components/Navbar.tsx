@@ -25,7 +25,11 @@ const Navbar = () => {
                 <button onClick={() => router.push("/dashboard/notifications")} className="hover:text-primary transition">
                     <Bell className="w-5 h-5" />
                 </button>
-                <button onClick={() => router.push("/dashboard/profile")} className="border rounded-full text-white border-border p-2 bg-primary hover:bg-secondary/80 transition">
+                <div className="flex flex-col text-xs text-end">
+                    <p>Dr. Moona</p>
+                    <p className="text-primary">admin</p>
+                </div>
+                <button onClick={() => router.push("/dashboard/profile")} className="border flex justify-between rounded-full text-white border-border p-2 bg-primary hover:bg-secondary/80 transition">
                     <User className="w-5 h-5" />
                 </button>
             </div>

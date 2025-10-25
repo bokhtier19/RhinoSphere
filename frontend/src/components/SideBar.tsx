@@ -1,9 +1,8 @@
 import React from "react";
 import { jwtDecode } from "jwt-decode";
-import { sidebarConfig } from "@/lib/sidebarCongig";
+import { sidebarConfig } from "@/lib/sidebarConfig";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { LogOut, Volleyball } from "lucide-react";
 
 interface DecodedToken {
     userId: number;
@@ -33,36 +32,17 @@ const SideBar = () => {
     const router = useRouter();
 
     return (
-        <aside className="w-56 flex flex-col bg-sidebar-bg  text-white h-screen p-4 gap-12 rounded-l-2xl">
-            <Link href={"/"}>
-                <div className="flex gap-2 text-2xl mb-5 font-bold items-center">
-                    <Volleyball />
-                    RhinoSphere
-                </div>
-            </Link>
-            <nav className="flex flex-col">
+        <aside className="flex flex-col h-screen p-4 gap-12 overflow-hidden">
+            <nav className="flex flex-col ">
                 {menuItems.map((item) => (
-                    <div className="hover:bg-primary-light rounded-sm">
-                        <Link key={item.path} href={item.path} className="gap-2 flex items-center p-2 rounded-md">
-                            <item.icon className="w-5 h-5" />
-                            <span>{item.label}</span>
+                    <div className="hover:bg-primary-light text-sm rounded-sm">
+                        <Link key={item.path} href={item.path} className="gap-2 flex items-center py-2 md:p-2 rounded-md">
+                            <item.icon className="font-light w-5 h-5" />
+                            <span className="hidden md:block">{item.label}</span>
                         </Link>
                     </div>
                 ))}
             </nav>
-            <div className="flex">
-                <button
-                    onClick={(e) => {
-                        e.preventDefault();
-                        localStorage.removeItem("token");
-                        document.cookie = "token=; path=/; max-age=0; Secure; SameSite=Strict";
-                        router.push("/login");
-                    }}
-                    className=" rounded-sm py-2 px-4  flex gap-2">
-                    Logout
-                    <LogOut className="w-5 h-5" />
-                </button>
-            </div>
         </aside>
     );
 };

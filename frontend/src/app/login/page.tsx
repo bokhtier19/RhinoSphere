@@ -1,9 +1,17 @@
 "use client";
 
 import { fetchFromAPI } from "@/lib/api";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { jwtDecode } from "jwt-decode";
+
+interface DecodedToken {
+    userId: number;
+    role: string;
+    iat: number;
+    exp: number;
+}
 
 const LoginPage = () => {
     const [loading, setLoading] = useState(false);
@@ -14,22 +22,45 @@ const LoginPage = () => {
 
     const router = useRouter();
 
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        if (token) {
+            try {
+                const decoded = jwtDecode<DecodedToken>(token);
+                const role = decoded.role?.toLowerCase();
+                router.replace(`/${role}`);
+            } catch {
+                localStorage.removeItem("token");
+            }
+        }
+    }, [router]);
+
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
         setLoading(true);
         try {
-            const res = await fetchFromAPI("api/auth/login", "POST", { email: form.email, password: form.password });
+            const res = await fetchFromAPI("api/auth/login", "POST", {
+                email: form.email,
+                password: form.password,
+            });
 
-            if (!res?.token) {
-                throw new Error("Invalid Token!");
-            }
+            if (!res?.token) throw new Error("Invalid Token!");
 
-            // Save token to localStorage and cookie
+            // Save token
             localStorage.setItem("token", res.token);
             document.cookie = `token=${res.token}; path=/; max-age=3600; Secure; SameSite=Strict`;
-            router.push("/dashboard");
+
+            // Decode token to get user role
+            const decoded = jwtDecode<DecodedToken>(res.token);
+            const role = decoded.role?.toLowerCase();
+
+            if (role === "admin") router.push("/admin");
+            else if (role === "teacher") router.push("/teacher");
+            else if (role === "guardian") router.push("/guardian");
+            else router.push("/student");
         } catch (error) {
-            alert("Login failed. Please Check Your credentials.");
+            console.error("Login error:", error);
+            alert("Login failed. Please check your credentials.");
         } finally {
             setLoading(false);
         }
@@ -37,7 +68,7 @@ const LoginPage = () => {
 
     return (
         <div className="flex items-center justify-center min-h-screen ">
-            <form className="shadow-lg rounded-2xl flex flex-col gap-4 bg-card p-8 w-full max-w-md" onSubmit={handleLogin}>
+            <form className=" card shadow-[0_4px_20px_0_rgba(0,0,0,0.1),0_0_10px_2px_rgba(0,0,0,0.05)] rounded-2xl flex flex-col gap-4 bg-card p-8 w-full max-w-md" onSubmit={handleLogin}>
                 <h2 className="text-2xl font-bold text-center mb-6">Login to an Account</h2>
 
                 <div className="flex gap-4 flex-col">

@@ -1,0 +1,63 @@
+// sidebarConfig.ts
+import {
+    Home,
+    Users,
+    BookOpen,
+    DollarSign,
+    Bell,
+    LucideGraduationCap,
+    PenBoxIcon,
+    Calendar,
+    MessageCircle,
+    CalendarDays,
+    FileIcon,
+    UserStar,
+    Megaphone,
+    PhoneCallIcon,
+    VideoIcon,
+    MailIcon,
+    Settings,
+    LogOut,
+} from "lucide-react";
+
+export const sidebarConfig: Record<string, { label: string; path: string; icon: any }[]> = {
+    admin: [
+        { label: "Dashboard", path: "/", icon: Home },
+        { label: "All users", path: "/admin/users", icon: Users },
+        { label: "Teachers", path: "/admin/teachers", icon: LucideGraduationCap },
+        { label: "Guardians", path: "/admin/guardians", icon: UserStar },
+        { label: "Students", path: "/admin/students", icon: PenBoxIcon },
+        { label: "Time Table", path: "/timetable", icon: CalendarDays },
+        { label: "Mailbox", path: "/messages", icon: MailIcon },
+        { label: "Calender", path: "/admin/calender", icon: Calendar },
+        { label: "Fees", path: "/admin/fees", icon: DollarSign },
+        { label: "Noticeboard", path: "/noticeboard", icon: Megaphone },
+    ],
+    teacher: [
+        { label: "Dashboard", path: "/", icon: Home },
+        { label: "My Classes", path: "/teacher/classes", icon: BookOpen },
+        { label: "Students", path: "/teacher/students", icon: Users },
+        { label: "Contact", path: "/contact", icon: PhoneCallIcon },
+    ],
+    student: [
+        { label: "Dashboard", path: "/", icon: Home },
+        { label: "My Assignments", path: "/student/assignments", icon: FileIcon },
+        { label: "My TimeTable", path: "/student/timetable", icon: Calendar },
+        { label: "Message", path: "/student/messages", icon: MessageCircle },
+        { label: "My Resources", path: "/student/resources", icon: VideoIcon },
+        { label: "Noticeboard", path: "/student/noticeboard", icon: Megaphone },
+        { label: "Contact", path: "/contact", icon: PhoneCallIcon },
+    ],
+    guardian: [
+        { label: "Dashboard", path: "/", icon: Home },
+        { label: "Child’s Fees", path: "/guardian/fees", icon: DollarSign },
+        { label: "Notifications", path: "/guardian/notifications", icon: Bell },
+        { label: "Noticeboard", path: "/student/noticeboard", icon: Megaphone },
+        { label: "Contact", path: "/contact", icon: PhoneCallIcon },
+    ],
+    all: [
+        { label: "Logout", path: "/logout", icon: LogOut },
+        { label: "Setting", path: "/setting", icon: Settings },
+        { label: "Profile", path: "/profile", icon: UserStar },
+    ],
+};
