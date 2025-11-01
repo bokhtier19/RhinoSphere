@@ -9,9 +9,9 @@ const Navbar = () => {
     const router = useRouter();
 
     return (
-        <nav className="flex justify-between items-center px-6 py-4 bg-background/60 backdrop-blur-sm border-b border-border">
+        <nav className="flex justify-end md:justify-between items-center px-2 md:px-6 py-4 bg-background/60">
             {/* Search Bar */}
-            <div className="flex items-center gap-2 w-full max-w-sm bg-card border border-border rounded-xl px-3 py-2 shadow-sm">
+            <div className="hidden md:flex items-center  gap-2 w-1/2 lg:w-full max-w-sm bg-card border border-border rounded-xl px-3 py-2 shadow-sm">
                 <Search className="w-4 h-4 text-muted-foreground" />
                 <input type="text" placeholder="Search anything..." className="bg-transparent w-full outline-none text-sm text-foreground placeholder:text-muted-foreground" />
             </div>
