@@ -3,7 +3,7 @@ import { Ellipsis } from "lucide-react";
 
 const CountCard = ({ type }: { type: string }) => {
     return (
-        <div className="flex-1  even:bg-secondary odd:bg-primary rounded-2xl min-w-[130px]">
+        <div className="flex-1 text-white  even:bg-secondary odd:bg-primary rounded-2xl min-w-[130px]">
             {/* Small Summary Cards */}
             <div className="">
                 <div className="p-4 text-center flex flex-col gap-2">

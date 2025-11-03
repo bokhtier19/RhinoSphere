@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import ProtectedRoute from "../../components/ProtectedRoute";
 import Navbar from "../../components/Navbar";
 import { useRouter } from "next/navigation";
@@ -9,27 +9,27 @@ import Link from "next/link";
 import { Volleyball } from "lucide-react";
 
 const DashboardPageLayout = ({ children }: { children: React.ReactNode }) => {
-    const router = useRouter();
-
     return (
         <ProtectedRoute>
             <div className="flex h-screen">
                 {/* Left Side */}
-
-                <div className="w-[15%] md:w-[15%] lg:w-[15%] xl:w-[15%]">
+                <div className="w-[10%] md:w-[15%] lg:w-[10%] xl:w-[10%]">
                     <Link href={"/"}>
-                        <div className="flex justify-center items-center lg:justify-start p-4 mt-5 py-2 gap-2">
-                            <Volleyball size={30} className="shrink-0" />
-                            <span className="hidden md:block">RhinoSphere</span>
+                        <div className="flex justify-start items-center text-xl font-extrabold lg:justify-start p-4 mt-5 py-2 gap-2">
+                            <Volleyball size={30} className="shrink-0 text-primary" />
+                            <span className="hidden md:block">
+                                Rhino
+                                <span className="text-secondary">Sphere</span>
+                            </span>
                         </div>
                     </Link>
                     <SideBar />
                 </div>
 
                 {/* Right Side */}
-                <div className="w-[85%] md:w-[85%] lg:w-[85%] xl:w-[85%] flex flex-col overflow-scroll">
+                <div className="w-[90%] md:w-[85%] lg:w-[90%] xl:w-[90%] flex flex-col overflow-scroll">
                     <Navbar />
-                    <main className="flex flex-1 overflow-y-auto p-6">{children}</main>
+                    <main className="flex overflow-y-scroll p-6">{children}</main>
                 </div>
             </div>
         </ProtectedRoute>

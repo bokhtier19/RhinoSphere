@@ -11,7 +11,10 @@ export default function WelcomePage() {
             {/* Logo / App Name */}
             <motion.div className="flex items-center gap-3 mb-6" initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
                 <GraduationCap className="h-12 w-12 text-primary" />
-                <h1 className="text-4xl font-extrabold tracking-tight bg-gradient-to-r from-primary to-primary/70 text-transparent bg-clip-text">RhinoSphere</h1>
+                <h1 className="text-4xl font-extrabold tracking-tight bg-gradient-to-r from-primary to-primary/70  bg-clip-text">
+                    Rhino
+                    <span className="text-secondary">Sphere</span>
+                </h1>
             </motion.div>
 
             {/* Tagline */}

@@ -121,8 +121,16 @@ body {
     background: none !important;
 }
 
-.react-calendar__tile--active {
+.react-calendar__tile--now {
     background-color: var(--secondary) !important;
+    border-radius: 8px !important;
+}
+.react-calendar__tile--active {
+    background-color: var(--primary) !important;
+    border-radius: 8px !important;
+}
+.react-calendar__tile:hover {
+    background-color: var(--primary) !important;
     border-radius: 8px !important;
 }
 

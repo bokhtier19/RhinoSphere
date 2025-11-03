@@ -34,6 +34,7 @@ const StudentChart = () => {
                 <ResponsiveContainer>
                     <RadialBarChart className="flex" barSize={90} data={data}>
                         <RadialBar label={{ position: "insideStart", fill: "none" }} background dataKey="present" />
+                        <Tooltip />
                     </RadialBarChart>
                 </ResponsiveContainer>
                 <Users className="absolute top-1/2 right-1/2 text-secondary translate-x-5 -translate-y-5" size={35} />
