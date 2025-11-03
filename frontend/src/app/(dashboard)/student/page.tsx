@@ -1,5 +1,5 @@
 import AnnouncementCard from "@/components/AnnouncementCard";
-import BigCalenderCard from "@/components/BigcalenderCard";
+import BigCalenderCard from "@/components/BigCalenderCard";
 import CalenderEventCard from "@/components/CalenderEventCard";
 import React from "react";
 
@@ -9,6 +9,9 @@ const page = () => {
             <div className="flex flex-col lg:flex-row w-full h-full">
                 {/* Left side */}
                 <div className="lg:w-3/4 w-full p-4 flex flex-col gap-6">
+                    <div>
+                        <p className="font-semibold text-primary">Schedule (12A) </p>
+                    </div>
                     <BigCalenderCard />
                 </div>
                 {/* Right side */}
