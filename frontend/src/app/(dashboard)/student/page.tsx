@@ -3,7 +3,7 @@ import BigCalenderCard from "@/components/BigCalenderCard";
 import CalenderEventCard from "@/components/CalenderEventCard";
 import React from "react";
 
-const page = () => {
+const StudentPage = () => {
     return (
         <div className="flex w-full h-screen flex-col gap-6 p-6">
             <div className="flex flex-col lg:flex-row w-full h-full">
@@ -24,4 +24,4 @@ const page = () => {
     );
 };
 
-export default page;
+export default StudentPage;
