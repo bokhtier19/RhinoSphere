@@ -23,7 +23,7 @@ import {
 export const sidebarConfig: Record<string, { label: string; path: string; icon: any }[]> = {
     admin: [
         { label: "Dashboard", path: "/admin", icon: Home },
-        { label: "All users", path: "/admin/users", icon: Users },
+        { label: "All users", path: "/lists/allusers", icon: Users },
         { label: "Teachers", path: "/admin/teachers", icon: LucideGraduationCap },
         { label: "Guardians", path: "/admin/guardians", icon: UserStar },
         { label: "Students", path: "/admin/students", icon: PenBoxIcon },
